@@ -11,12 +11,13 @@ wk.register(
     {
         p = {
             name = "telesco[p]e",
-            f = { "<cmd>Telescope find_files<cr>", "Find File" },
-            r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+            f = { builtin.find_files, "[F]ind File" },
+            r = { builtin.oldfiles, "Open [R]ecent File" },
+            s = { builtin.treesitter, "Tree[S]itter" },
+            t = { function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end, "Search [T]he Lot" },
         },
     }, 
     { 
         prefix = "<leader>" 
     }
 )
-
