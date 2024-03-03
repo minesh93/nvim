@@ -55,6 +55,9 @@ require("lazy").setup({
         "catppuccin/nvim",
         name = "catppuccin"
     },
+    {
+        "norcalli/nvim-colorizer.lua"
+    },
     { 
         "nvim-telescope/telescope.nvim", 
         tag = '0.1.5', 
