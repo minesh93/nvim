@@ -32,26 +32,24 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     "nvim-tree/nvim-web-devicons",
     "nvim-tree/nvim-tree.lua",
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate'
-    },
-    { -- Adds git related signs to the gutter, as well as utilities for managing changes
-        'lewis6991/gitsigns.nvim',
-        opts = {
-            signs = {
-                add = { text = '+' },
-                change = { text = '~' },
-                delete = { text = '_' },
-                topdelete = { text = '‾' },
-                changedelete = { text = '~' },
-            },
-        },
-    },
-    "folke/which-key.nvim",
-    { "catppuccin/nvim", name = "catppuccin" },
     { "nvim-telescope/telescope.nvim", tag = '0.1.5', dependencies = { "nvim-lua/plenary.nvim" } },
     "nvim-lualine/lualine.nvim",
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        config = function()
+
+            require('nvim-treesitter.configs').setup {
+                auto_install = true,
+                highlight = { enable = true },
+                indent = { enable = true },
+                ignore_install = { "lua" },
+            }
+        end,
+    },
+    "lewis6991/gitsigns.nvim",
+    "folke/which-key.nvim",
+    { "catppuccin/nvim", name = "catppuccin" },
     "nvimdev/dashboard-nvim", 
     { "utilyre/barbecue.nvim", tag = "v1.0.1", dependencies = { "SmiteshP/nvim-navic" } }
 })
