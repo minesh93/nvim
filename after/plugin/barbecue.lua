@@ -1,6 +1,2 @@
 
-
-
-
-
 require('barbecue').setup()

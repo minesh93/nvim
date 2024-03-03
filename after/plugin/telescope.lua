@@ -7,7 +7,6 @@ require('telescope').setup {
     }
 }
 
-
 wk.register(
     {
         p = {
