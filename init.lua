@@ -45,7 +45,7 @@ require("lazy").setup({
         build = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup {
-                ensure_installed = { "c", "lua", "rust", "javascript", "vue", "json" },
+                ensure_installed = { "c", "lua", "rust", "javascript", "vue", "json", "html", "php" },
                 auto_install = "true",
                 highlight = { enable = true, }
             }
@@ -104,6 +104,7 @@ require("lazy").setup({
         end)(),
       },
       'saadparwaiz1/cmp_luasnip',
+      'rafamadriz/friendly-snippets',
 
       -- Adds other completion capabilities.
       --  nvim-cmp does not ship with all sources by default. They are split

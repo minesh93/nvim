@@ -2,6 +2,7 @@ require("mason").setup()
 require("mason-lspconfig").setup {
     ensure_installed = { "lua_ls", "tailwindcss", "intelephense", "prismals", "html", "tsserver", "volar" },
 }
+require("luasnip.loaders.from_vscode").lazy_load()
 
 local testlongvar = 10000
   -- Set up nvim-cmp.
@@ -14,10 +15,10 @@ cmp.setup({
             require('luasnip').lsp_expand(args.body)
         end,
     },
-    window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-    },
+    --window = {
+    --    completion = cmp.config.window.bordered(),
+    --    documentation = cmp.config.window.bordered(),
+    --},
     mapping = cmp.mapping.preset.insert({
         ['<C-l>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -26,11 +27,8 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item
     }),
     sources = cmp.config.sources({
+        { name = 'luasnip' },
         { name = 'nvim_lsp' },
-        -- { name = 'vsnip' }, -- For vsnip users.
-        { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
     }, {
       { name = 'buffer' },
     })
@@ -57,7 +55,7 @@ local lsp_vue = require('lspconfig')['volar']
 local lsp_php = require('lspconfig')['intelephense']
 local lsp_ts = require('lspconfig')['tsserver']
 
-lsp_lua.setup {
+lsp_php.setup {
     capabilities = capabilities
 }
 
