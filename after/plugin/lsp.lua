@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "volar", "tailwindcss", "intelephense", "prismals", "html" },
+    ensure_installed = { "lua_ls", "tailwindcss", "intelephense", "prismals", "html", "tsserver", "vuels" },
 }
 
 local testlongvar = 10000
@@ -59,9 +59,13 @@ cmp.setup({
     capabilities = capabilities
   }
 
-    require('lspconfig')['volar'].setup {
+    require('lspconfig')['vuels'].setup {
     capabilities = capabilities
   }
+
+    require('lspconfig')['tsserver'].setup {
+        capabilities = capabilities
+    }
 
     require('lspconfig')['html'].setup {
     capabilities = capabilities
